@@ -30,10 +30,7 @@ class WriteFragment : Fragment() {
         _binding = FragmentWriteBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textWrite
-        writeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
         return root
     }
 
