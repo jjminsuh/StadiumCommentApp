@@ -8,7 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.stadiumcommentapp.R
+import com.example.stadiumcommentapp.data.ReviewListItem
 import com.example.stadiumcommentapp.databinding.FragmentWriteBinding
+import com.example.stadiumcommentapp.ui.profile.ProfileMyReviewListAdapter
 
 class WriteFragment : Fragment() {
 
@@ -29,6 +34,7 @@ class WriteFragment : Fragment() {
 
         _binding = FragmentWriteBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
 
 
         return root

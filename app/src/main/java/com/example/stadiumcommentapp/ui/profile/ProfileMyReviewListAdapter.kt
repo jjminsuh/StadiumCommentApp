@@ -1,6 +1,7 @@
 package com.example.stadiumcommentapp.ui.profile
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -13,19 +14,19 @@ class ProfileMyReviewListAdapter(private val context: Context): RecyclerView.Ada
     var myReviewList = ArrayList<ReviewListItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        val view = LayoutInflater.from(context).inflate(R.layout.profile_review_item, parent, false)
+        return  ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(myReviewList[position])
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = myReviewList.size
 
     fun MyReviewList(reviewList: ArrayList<ReviewListItem>){
-        TODO("Not yet implemented")
+        myReviewList = reviewList
+        notifyDataSetChanged()
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
