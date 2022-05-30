@@ -1,43 +1,44 @@
 package com.example.stadiumcommentapp.ui.home
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.stadiumcommentapp.R
+import com.example.stadiumcommentapp.databinding.HomeCalendarDateBinding
 
-class HomeCalendarAdapter(private val context: Context) : RecyclerView.Adapter<HomeCalendarAdapter.ViewHolder>() {
-
-    var dateList = ArrayList<String> ()
+class HomeCalendarAdapter : ListAdapter<String, HomeCalendarAdapter.ViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.home_calendar_date, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(HomeCalendarDateBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(dateList[position])
+        holder.bind(currentList[position])
     }
 
-    override fun getItemCount(): Int = dateList.size
+    inner class ViewHolder(private val binding: HomeCalendarDateBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-    fun dateList(calendarList: ArrayList<String>) {
-        dateList = calendarList
-        notifyDataSetChanged()
+        fun bind(singleDate: String) {
+            if (singleDate == "EMPTY") {
+                binding.dateText.text = ""
+            } else {
+                binding.dateText.text = singleDate
+            }
+        }
     }
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        private val date: TextView = itemView.findViewById(R.id.date_text)
+    companion object {
+        val diffUtil = object : DiffUtil.ItemCallback<String>() {
+            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+                return oldItem == newItem
+            }
 
-        fun bind(singleDate: String){
-            if(singleDate == "EMPTY"){
-                date.text = ""
+            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
+                return oldItem == newItem
             }
-            else{
-                date.text = singleDate
-            }
+
         }
     }
 }

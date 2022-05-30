@@ -4,15 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.stadiumcommentapp.R
-import com.example.stadiumcommentapp.data.ReviewListItem
-import com.example.stadiumcommentapp.databinding.FragmentHomeBinding
 import com.example.stadiumcommentapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
@@ -24,6 +20,9 @@ class ProfileFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var myReviewView: RecyclerView
+    private lateinit var myReviewListAdapter: ProfileMyReviewListAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,23 +32,35 @@ class ProfileFragment : Fragment() {
             ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        //test data
-        var test = ArrayList<ReviewListItem> ()
+        return binding.root
+    }
 
-        for(i in 0 until 10){
-            test.add(ReviewListItem("잘 보이는 편이예요.", "kt소닉붐화이팅", "2022-03-08", "수원 KT 소닉붐 아레나","D4", "2022-02-11"))
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadData()
+        renderUi()
+        observe()
+    }
 
-        val myReviewView = root.findViewById<RecyclerView>(R.id.my_review_list)
-        val myReviewListAdapter = ProfileMyReviewListAdapter(requireContext())
+    private fun loadData() {
+        profileViewModel.loadMyReview()
+    }
+
+    private fun renderUi() {
+        myReviewView = binding.myReviewList
+        myReviewListAdapter = ProfileMyReviewListAdapter(requireContext())
 
         myReviewView.layoutManager = LinearLayoutManager(context)
-        myReviewListAdapter.MyReviewList(test)
         myReviewView.adapter = myReviewListAdapter
+    }
 
-        return root
+    private fun observe() {
+        with(profileViewModel) {
+            myReviewList.observe(viewLifecycleOwner, Observer {
+                myReviewListAdapter.MyReviewList(it)
+            })
+        }
     }
 
     override fun onDestroyView() {
