@@ -1,5 +1,6 @@
 package com.example.stadiumcommentapp.ui.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,10 +45,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadData() {
+        homeViewModel.loadInfo()
         homeViewModel.setCalendar()
     }
 
     private fun renderUi() {
+
         calendarView = binding.calendarRecycler
         calendarAdapter = HomeCalendarAdapter()
         calendarView.layoutManager =
@@ -55,6 +58,7 @@ class HomeFragment : Fragment() {
         calendarView.adapter = calendarAdapter
     }
 
+    @SuppressLint("SetTextI18n")
     private fun observe() {
         with(homeViewModel) {
             calendarList.observe(viewLifecycleOwner, Observer {
@@ -62,7 +66,17 @@ class HomeFragment : Fragment() {
             })
 
             interestStadium.observe(viewLifecycleOwner, Observer {
-                binding.stadiumName.text = it
+                binding.stadiumName.text = it.stadiumName
+                binding.stadiumAddress.text = it.stadiumAddress
+                binding.stadiumPhoneNum.text = it.stadiumPhone
+            })
+
+            thisMonth.observe(viewLifecycleOwner, Observer {
+                binding.textMonth.text = it + "월"
+            })
+
+            thisYear.observe(viewLifecycleOwner, Observer {
+                binding.textYear.text = it + "년"
             })
         }
     }

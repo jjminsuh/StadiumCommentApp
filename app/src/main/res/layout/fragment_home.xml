@@ -59,20 +59,20 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
-        android:id="@+id/text_month"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Feburary"
-        app:layout_constraintTop_toBottomOf="@id/text_my_game"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
-    <TextView
         android:id="@+id/text_year"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="2022"
         app:layout_constraintTop_toBottomOf="@id/text_my_game"
-        app:layout_constraintLeft_toRightOf="@id/text_month"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/text_month"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="2월"
+        app:layout_constraintTop_toBottomOf="@id/text_my_game"
+        app:layout_constraintLeft_toRightOf="@id/text_year"
         app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
