@@ -8,6 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.stadiumcommentapp.databinding.ActivityMainBinding
+import com.example.stadiumcommentapp.ui.home.HomeDateDetailFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +30,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_write, R.id.navigation_search, R.id.navigation_profile
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
     }
 }

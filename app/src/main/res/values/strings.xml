@@ -4,4 +4,20 @@
     <string name="title_search">Search</string>
     <string name="title_write">Write</string>
     <string name="title_profile">Profile</string>
+
+    <string name="text_interest_stadium">관심 경기장</string>
+    <string name="text_my_game_schedule">나의 경기 일정</string>
+
+    <string name="monday">월요일</string>
+    <string name="tuesday">화요일</string>
+    <string name="wednesday">수요일</string>
+    <string name="thursday">목요일</string>
+    <string name="friday">금요일</string>
+    <string name="saturday">토요일</string>
+    <string name="sunday">일요일</string>
+
+    <string name="text_my_info">내 정보</string>
+    <string name="text_modify">수정하기</string>
+    <string name="text_my_review">내가 쓴 후기</string>
+
 </resources>

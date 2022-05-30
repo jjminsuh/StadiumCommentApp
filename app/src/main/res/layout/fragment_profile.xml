@@ -6,64 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".ui.profile.ProfileFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/text_my_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_my_info"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="내 정보"
-            tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/text_nickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nick Name"
+        app:layout_constraintTop_toBottomOf="@id/text_my_info"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nick Name"/>
+    <TextView
+        android:id="@+id/text_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="email@email.com"
+        app:layout_constraintTop_toBottomOf="@id/text_nickname"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="email@email.com"/>
+    <TextView
+        android:id="@+id/text_interest_stadium_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_interest_stadium"
+        app:layout_constraintTop_toBottomOf="@id/text_email"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="관심 경기장"
-            tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/text_stadium_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수원 KT 소닉붐 아레나"
+        app:layout_constraintTop_toTopOf="@id/btn_modify_stadium"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/btn_modify_stadium"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/btn_modify_stadium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_modify"
+        app:layout_constraintTop_toBottomOf="@+id/text_interest_stadium_profile"
+        app:layout_constraintLeft_toRightOf="@+id/text_stadium_name"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="수원 KT 소닉붐 아레나"
-                tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/text_my_review"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_my_review"
+        app:layout_constraintTop_toBottomOf="@id/btn_modify_stadium"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="수정 하기"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="내가 쓴 후기"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/my_review_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </LinearLayout>
-
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_review_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_my_review" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
