@@ -5,9 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.stadiumcommentapp.data.StadiumInfo
+import dagger.hilt.android.lifecycle.HiltViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
+@HiltViewModel
 class HomeViewModel : ViewModel() {
 
     private val _calendarList = MutableLiveData<ArrayList<String>>()
@@ -31,9 +33,6 @@ class HomeViewModel : ViewModel() {
         val dayList: ArrayList<String> = ArrayList()
 
         try {
-
-//            Log.d("%%", today.get(Calendar.YEAR).toString())
-//            Log.d("%%", today.get(Calendar.MONTH).toString())
             _thisYear.value = today.get(Calendar.YEAR).toString()
             _thisMonth.value = (today.get(Calendar.MONTH) + 1).toString()
 

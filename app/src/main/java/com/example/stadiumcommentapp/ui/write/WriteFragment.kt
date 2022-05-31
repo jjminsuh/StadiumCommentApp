@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.stadiumcommentapp.databinding.FragmentWriteBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WriteFragment : Fragment() {
 
     private lateinit var writeViewModel: WriteViewModel
