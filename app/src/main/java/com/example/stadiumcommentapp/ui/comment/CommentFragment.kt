@@ -4,10 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.stadiumcommentapp.R
 import com.example.stadiumcommentapp.databinding.FragmentCommentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,13 +31,31 @@ class CommentFragment : Fragment() {
             ViewModelProvider(this).get(CommentViewModel::class.java)
 
         _binding = FragmentCommentBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
 
-        val textView: TextView = binding.textSearch
-        commentViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loadData()
+        renderUi()
+        observe()
+    }
+
+    private fun loadData() {
+        commentViewModel.loadStadiumList()
+    }
+
+    private fun renderUi() {
+
+    }
+
+    private fun observe() {
+        with(commentViewModel) {
+            stadiumList.observe(viewLifecycleOwner, Observer {
+                binding.selectStadium.adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, it)
+                //onItemSelectedListener
+            })
+        }
     }
 
     override fun onDestroyView() {
