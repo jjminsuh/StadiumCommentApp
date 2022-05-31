@@ -1,4 +1,4 @@
-package com.example.stadiumcommentapp.ui.write
+package com.example.stadiumcommentapp.ui.comment
 
 import android.os.Bundle
 import android.view.LayoutInflater

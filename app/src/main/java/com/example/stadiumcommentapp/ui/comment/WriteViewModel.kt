@@ -1,4 +1,4 @@
-package com.example.stadiumcommentapp.ui.write
+package com.example.stadiumcommentapp.ui.comment
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

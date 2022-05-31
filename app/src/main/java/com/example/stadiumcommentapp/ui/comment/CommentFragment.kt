@@ -1,4 +1,4 @@
-package com.example.stadiumcommentapp.ui.search
+package com.example.stadiumcommentapp.ui.comment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,14 +8,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.stadiumcommentapp.databinding.FragmentSearchBinding
+import com.example.stadiumcommentapp.databinding.FragmentCommentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchFragment : Fragment() {
+class CommentFragment : Fragment() {
 
-    private lateinit var searchViewModel: SearchViewModel
-    private var _binding: FragmentSearchBinding? = null
+    private lateinit var commentViewModel: CommentViewModel
+    private var _binding: FragmentCommentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,14 +26,14 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        searchViewModel =
-            ViewModelProvider(this).get(SearchViewModel::class.java)
+        commentViewModel =
+            ViewModelProvider(this).get(CommentViewModel::class.java)
 
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        _binding = FragmentCommentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textSearch
-        searchViewModel.text.observe(viewLifecycleOwner, Observer {
+        commentViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
