@@ -9,7 +9,16 @@
         android:id="@+id/navigation_home"
         android:name="com.example.stadiumcommentapp.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_home_date_detail"
+            app:destination="@id/navigation_home_date_detail">
+            <argument
+                android:name="date"
+                app:argType="string"
+                android:defaultValue="1" />
+        </action>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_write"
@@ -28,4 +37,10 @@
         android:name="com.example.stadiumcommentapp.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_home_date_detail"
+        android:name="com.example.stadiumcommentapp.ui.home.HomeDateDetailFragment"
+        android:label="HomeDateDetail"
+        tools:layout="@layout/fragment_home_date_detail" />
 </navigation>

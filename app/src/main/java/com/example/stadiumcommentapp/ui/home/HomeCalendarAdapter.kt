@@ -6,11 +6,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stadiumcommentapp.databinding.HomeCalendarDateBinding
+import javax.inject.Inject
 
-class HomeCalendarAdapter : ListAdapter<String, HomeCalendarAdapter.ViewHolder>(diffUtil) {
+class HomeCalendarAdapter @Inject constructor(private val dateListener: DateDetailListener) :
+    ListAdapter<String, HomeCalendarAdapter.ViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(HomeCalendarDateBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return ViewHolder(
+            HomeCalendarDateBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -25,6 +33,10 @@ class HomeCalendarAdapter : ListAdapter<String, HomeCalendarAdapter.ViewHolder>(
                 binding.dateText.text = ""
             } else {
                 binding.dateText.text = singleDate
+
+                binding.root.setOnClickListener {
+                    dateListener.onClickDate(singleDate)
+                }
             }
         }
     }

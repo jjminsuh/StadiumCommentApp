@@ -5,9 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.stadiumcommentapp.data.ReviewListItem
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel : ViewModel() {
+class ProfileViewModel @Inject constructor() : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is profile Fragment"
