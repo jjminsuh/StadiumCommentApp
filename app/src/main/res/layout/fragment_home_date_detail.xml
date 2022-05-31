@@ -7,14 +7,12 @@
     tools:context=".ui.home.HomeDateDetailFragment">
 
     <TextView
+        android:id="@+id/full_Date"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Date Detail"
         android:gravity="center_horizontal"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.stadiumcommentapp.data.DateInfo
 import com.example.stadiumcommentapp.data.StadiumInfo
 import com.example.stadiumcommentapp.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel

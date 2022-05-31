@@ -16,7 +16,7 @@
             <argument
                 android:name="date"
                 app:argType="string"
-                android:defaultValue="1" />
+                android:defaultValue="2001-01-01" />
         </action>
     </fragment>
 
@@ -42,5 +42,9 @@
         android:id="@+id/navigation_home_date_detail"
         android:name="com.example.stadiumcommentapp.ui.home.HomeDateDetailFragment"
         android:label="HomeDateDetail"
-        tools:layout="@layout/fragment_home_date_detail" />
+        tools:layout="@layout/fragment_home_date_detail">
+        <argument
+            android:name="date"
+            app:argType="string"  />
+    </fragment>
 </navigation>

@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.stadiumcommentapp.data.DateInfo
 import com.example.stadiumcommentapp.databinding.FragmentHomeBinding
 import com.example.stadiumcommentapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
@@ -55,11 +56,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun renderUi() {
-
         calendarView = binding.calendarRecycler
-        calendarAdapter = HomeCalendarAdapter(object: DateDetailListener{
+        calendarAdapter = HomeCalendarAdapter(object : DateDetailListener {
             override fun onClickDate(date: String) {
-                homeViewModel.onClickDate(date)
+                homeViewModel.onClickDate("${homeViewModel.thisYear.value}-${homeViewModel.thisMonth.value}-${date}")
             }
         })
         calendarView.layoutManager =
@@ -88,8 +88,9 @@ class HomeFragment : Fragment() {
                 binding.textYear.text = it + "년"
             })
 
-            eventDateClick.observe(viewLifecycleOwner, EventObserver{
-                val action = HomeFragmentDirections.actionNavigationHomeToNavigationHomeDateDetail(it)
+            eventDateClick.observe(viewLifecycleOwner, EventObserver {
+                val action =
+                    HomeFragmentDirections.actionNavigationHomeToNavigationHomeDateDetail(it)
                 Navigation.findNavController(requireView()).navigate(action)
             })
         }
