@@ -45,7 +45,7 @@
         android:id="@+id/stadium_phone_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="(031)278-0010"
+        android:text="(000)0000-0000"
         app:layout_constraintTop_toBottomOf="@id/stadium_address"
         app:layout_constraintLeft_toRightOf="@id/img_stadium_phone" />
 

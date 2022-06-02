@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.stadiumcommentapp.R
-import com.example.stadiumcommentapp.data.ReviewListItem
+import com.example.stadiumcommentapp.data.model.ReviewListItem
 
 class ProfileMyReviewListAdapter(private val context: Context): RecyclerView.Adapter<ProfileMyReviewListAdapter.ViewHolder>() {
 

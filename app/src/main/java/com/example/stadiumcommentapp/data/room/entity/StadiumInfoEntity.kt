@@ -8,6 +8,8 @@ import androidx.room.PrimaryKey
 data class StadiumInfoEntity(
     @PrimaryKey(autoGenerate = true)
     val stadiumId: Int,
+    @ColumnInfo(name = "team_name")
+    val teamName: String,
     @ColumnInfo(name = "stadium_name")
     val stadiumName: String,
     @ColumnInfo(name = "stadium_address")

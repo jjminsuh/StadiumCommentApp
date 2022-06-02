@@ -1,4 +1,4 @@
-package com.example.stadiumcommentapp.data
+package com.example.stadiumcommentapp.data.model
 
 
 data class ReviewListItem(

@@ -3,7 +3,7 @@ package com.example.stadiumcommentapp.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.stadiumcommentapp.data.DateInfo
+import com.example.stadiumcommentapp.data.model.DateInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

@@ -11,11 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.stadiumcommentapp.data.DateInfo
 import com.example.stadiumcommentapp.databinding.FragmentHomeBinding
 import com.example.stadiumcommentapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
