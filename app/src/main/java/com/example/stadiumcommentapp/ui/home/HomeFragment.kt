@@ -20,9 +20,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     private lateinit var calendarAdapter: HomeCalendarAdapter
@@ -54,6 +51,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun renderUi() {
+
+        binding.homeTitle.setTitle("Home")
+        binding.homeTitle.setBackArrow(false)
+
         calendarView = binding.calendarRecycler
         calendarAdapter = HomeCalendarAdapter(object : DateDetailListener {
             override fun onClickDate(date: String) {
