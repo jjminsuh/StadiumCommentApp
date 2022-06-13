@@ -52,8 +52,19 @@ class HomeFragment : Fragment() {
 
     private fun renderUi() {
 
-        binding.homeTitle.setTitle("Home")
-        binding.homeTitle.setBackArrow(false)
+        with(binding) {
+            homeTitle.setTitle("Home")
+            homeTitle.setBackArrow(false)
+
+            val width = resources.displayMetrics.widthPixels - 16
+            textSunday.layoutParams.width = width / 7
+            textMonday.layoutParams.width = width / 7
+            textTuesday.layoutParams.width = width / 7
+            textWednesday.layoutParams.width = width / 7
+            textThursday.layoutParams.width = width / 7
+            textFriday.layoutParams.width = width / 7
+            textSaturday.layoutParams.width = width / 7
+        }
 
         calendarView = binding.calendarRecycler
         calendarAdapter = HomeCalendarAdapter(object : DateDetailListener {
@@ -76,7 +87,7 @@ class HomeFragment : Fragment() {
             interestStadium.observe(viewLifecycleOwner, Observer {
                 binding.stadiumName.text = it.stadiumName
                 binding.stadiumAddress.text = it.stadiumAddress
-                binding.stadiumPhoneNum.text = it.stadiumPhone
+//                binding.stadiumPhoneNum.text = it.stadiumPhone
             })
 
             thisMonth.observe(viewLifecycleOwner, Observer {
