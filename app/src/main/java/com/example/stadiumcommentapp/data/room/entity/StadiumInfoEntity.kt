@@ -15,5 +15,9 @@ data class StadiumInfoEntity(
     @ColumnInfo(name = "stadium_address")
     val stadiumAddress: String,
     @ColumnInfo(name = "stadium_phone")
-    val stadiumPhone: String
+    val stadiumPhone: String,
+    @ColumnInfo(name = "team_instagram")
+    val teamInstagram: String,
+    @ColumnInfo(name = "team_youtube")
+    val teamYoutube: String
 )
