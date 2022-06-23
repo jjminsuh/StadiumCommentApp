@@ -56,7 +56,7 @@ class HomeFragment : Fragment() {
             homeTitle.setTitle("Home")
             homeTitle.setBackArrow(false)
 
-            val width = resources.displayMetrics.widthPixels - 16
+            val width = resources.displayMetrics.widthPixels - (16 * resources.displayMetrics.density + 0.5).toInt()
             textSunday.layoutParams.width = width / 7
             textMonday.layoutParams.width = width / 7
             textTuesday.layoutParams.width = width / 7
