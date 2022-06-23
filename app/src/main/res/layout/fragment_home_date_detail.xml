@@ -6,12 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeDateDetailFragment">
 
-    <TextView
-        android:id="@+id/full_Date"
+    <com.example.stadiumcommentapp.ui.common.TitleBarView
+        android:id="@+id/home_date_detail_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Date Detail"
-        android:gravity="center_horizontal"/>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+
 
 
 

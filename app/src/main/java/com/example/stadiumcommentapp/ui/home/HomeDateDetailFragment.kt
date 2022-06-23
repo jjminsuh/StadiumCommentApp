@@ -46,13 +46,15 @@ class HomeDateDetailFragment : Fragment() {
     }
 
     private fun renderUi() {
-
+        with(binding) {
+            homeDateDetailTitle.setBackArrow(true)
+        }
     }
 
     private fun observe() {
         with(viewModel) {
             date.observe(viewLifecycleOwner, Observer {
-                binding.fullDate.text = ("${it.year}년 ${it.month}월 ${it.date}일")
+                binding.homeDateDetailTitle.setTitle("${it.year}년 ${it.month}월 ${it.date}일")
             })
         }
     }
