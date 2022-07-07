@@ -13,7 +13,7 @@ open class TitleBarView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
-    private val binding = TitleBarViewBinding.inflate(LayoutInflater.from(context), this, true)
+    val binding = TitleBarViewBinding.inflate(LayoutInflater.from(context), this, true)
 
     open fun setTitle(title: String) {
         binding.textTitle.text = title
@@ -21,9 +21,5 @@ open class TitleBarView @JvmOverloads constructor(
 
     open fun setBackArrow(visible: Boolean) {
         binding.imageBack.visibility = if(visible) View.VISIBLE else View.GONE
-
-        binding.imageBack.setOnClickListener {
-            //뒤로가기
-        }
     }
 }

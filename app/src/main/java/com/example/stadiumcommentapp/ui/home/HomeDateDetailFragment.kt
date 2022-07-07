@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.NavArgs
 import androidx.navigation.fragment.navArgs
 import com.example.stadiumcommentapp.databinding.FragmentHomeDateDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,8 +45,10 @@ class HomeDateDetailFragment : Fragment() {
     }
 
     private fun renderUi() {
-        with(binding) {
-            homeDateDetailTitle.setBackArrow(true)
+        binding.homeDateDetailTitle.setBackArrow(true)
+        binding.homeDateDetailTitle.binding.imageBack.setOnClickListener {
+            //뒤로 가기 구현 필요
+            //https://witcheryoon.tistory.com/119
         }
     }
 

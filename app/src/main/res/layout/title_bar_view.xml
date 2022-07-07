@@ -27,8 +27,8 @@
         android:gravity="center"
         android:textColor="@color/black"
         app:layout_constraintLeft_toRightOf="@id/image_back"
-        app:layout_constraintTop_toTopOf="@id/image_back"
-        app:layout_constraintBottom_toBottomOf="@id/image_back" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
