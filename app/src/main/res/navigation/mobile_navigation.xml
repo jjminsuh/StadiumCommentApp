@@ -27,7 +27,25 @@
         tools:layout="@layout/fragment_home_date_detail">
         <argument
             android:name="date"
-            app:argType="string"  />
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_home_date_detail_to_navigation_home_new_schedule"
+            app:destination="@id/navigation_home_new_schedule">
+            <argument
+                android:name="date"
+                app:argType="string"
+                android:defaultValue="2001-01-01"/>
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_home_new_schedule"
+        android:name="com.example.stadiumcommentapp.ui.home.HomeNewScheduleFragment"
+        android:label="HomeNewSchedule"
+        tools:layout="@layout/fragment_home_new_schedule">
+        <argument
+            android:name="date"
+            app:argType="string"/>
     </fragment>
 
     <fragment
