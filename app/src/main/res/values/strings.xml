@@ -25,4 +25,16 @@
     <string name="text_modify">수정하기</string>
     <string name="text_my_review">내가 쓴 후기</string>
 
+    <string name="text_date">날짜</string>
+    <string name="text_game_info">경기 정보</string>
+    <string name="text_stadium_info">경기장 정보</string>
+    <string name="text_watch_type">관람 정보</string>
+    <string name="text_memo">메모</string>
+    <string name="text_vs">vs.</string>
+    <string name="text_home">홈</string>
+    <string name="text_away">어웨이</string>
+    <string name="text_watch_stadium">직관</string>
+    <string name="text_watch_home">집관</string>
+    <string name="text_submit">등록하기</string>
+
 </resources>

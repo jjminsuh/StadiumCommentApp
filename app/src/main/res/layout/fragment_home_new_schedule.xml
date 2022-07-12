@@ -5,11 +5,172 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.example.stadiumcommentapp.ui.common.TitleBarView
+        android:id="@+id/new_schedule_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="new schedule"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_date"
+        app:layout_constraintTop_toBottomOf="@id/new_schedule_title"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/select_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="2001-01-01"
+        android:textAlignment="center"
+        android:background="@drawable/new_schedule_background"
+        app:layout_constraintTop_toTopOf="@+id/text_date"
+        app:layout_constraintBottom_toBottomOf="@id/text_date"
+        app:layout_constraintLeft_toRightOf="@id/text_date"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/text_game_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_game_info"
+        app:layout_constraintTop_toBottomOf="@id/text_date"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/select_home_team"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="KT"
+        android:textAlignment="center"
+        android:background="@drawable/new_schedule_background"
+        app:layout_constraintTop_toTopOf="@id/text_game_info"
+        app:layout_constraintBottom_toBottomOf="@id/text_game_info"
+        app:layout_constraintLeft_toRightOf="@id/text_game_info"
+        app:layout_constraintRight_toLeftOf="@id/text_vs"/>
+
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_home"
+        app:layout_constraintTop_toBottomOf="@id/select_home_team"
+        app:layout_constraintLeft_toLeftOf="@id/select_home_team"
+        app:layout_constraintRight_toRightOf="@id/select_home_team"/>
+
+    <TextView
+        android:id="@+id/text_vs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_vs"
+        app:layout_constraintTop_toTopOf="@id/text_game_info"
+        app:layout_constraintBottom_toBottomOf="@id/text_game_info"
+        app:layout_constraintLeft_toRightOf="@id/select_home_team"
+        app:layout_constraintRight_toLeftOf="@id/select_away_team"/>
+
+    <TextView
+        android:id="@+id/select_away_team"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="모비스"
+        android:textAlignment="center"
+        android:background="@drawable/new_schedule_background"
+        app:layout_constraintTop_toTopOf="@id/text_game_info"
+        app:layout_constraintBottom_toBottomOf="@id/text_game_info"
+        app:layout_constraintLeft_toRightOf="@id/text_vs"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_away"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_away"
+        app:layout_constraintTop_toBottomOf="@id/select_away_team"
+        app:layout_constraintLeft_toLeftOf="@id/select_away_team"
+        app:layout_constraintRight_toRightOf="@id/select_away_team"/>
+
+    <TextView
+        android:id="@+id/text_stadium_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_stadium_info"
+        app:layout_constraintTop_toBottomOf="@id/text_home"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/select_stadium_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="수원 KT 소닉붐 아레나"
+        android:textAlignment="center"
+        android:background="@drawable/new_schedule_background"
+        app:layout_constraintTop_toTopOf="@+id/text_stadium_info"
+        app:layout_constraintBottom_toBottomOf="@id/text_stadium_info"
+        app:layout_constraintLeft_toRightOf="@id/text_stadium_info"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/text_watch_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_watch_type"
+        app:layout_constraintTop_toBottomOf="@id/text_stadium_info"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/select_watch_stadium"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_watch_stadium"
+        android:textAlignment="center"
+        android:background="@drawable/new_schedule_background"
+        app:layout_constraintTop_toTopOf="@id/text_watch_type"
+        app:layout_constraintBottom_toBottomOf="@id/text_watch_type"
+        app:layout_constraintLeft_toRightOf="@id/text_watch_type"
+        app:layout_constraintRight_toLeftOf="@id/select_watch_home"/>
+
+    <TextView
+        android:id="@+id/select_watch_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_watch_home"
+        android:textAlignment="center"
+        android:background="@drawable/new_schedule_background"
+        app:layout_constraintTop_toTopOf="@id/text_watch_type"
+        app:layout_constraintBottom_toBottomOf="@id/text_watch_type"
+        app:layout_constraintLeft_toRightOf="@id/select_watch_stadium"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_memo"
+        app:layout_constraintTop_toBottomOf="@id/text_watch_type"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_memo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/new_schedule_background"
+        app:layout_constraintTop_toTopOf="@id/text_memo"
+        app:layout_constraintBottom_toTopOf="@id/button_submit"
+        app:layout_constraintLeft_toRightOf="@id/text_memo"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_submit"
+        android:background="@drawable/new_schedule_submit_background"
+        app:layout_constraintTop_toBottomOf="@id/edit_memo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
