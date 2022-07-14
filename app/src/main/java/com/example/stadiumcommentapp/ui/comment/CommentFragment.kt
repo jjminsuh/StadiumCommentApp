@@ -48,7 +48,7 @@ class CommentFragment : Fragment() {
 
     private fun observe() {
         with(commentViewModel) {
-            stadiumList.observe(viewLifecycleOwner, Observer {
+            stadiumArray.observe(viewLifecycleOwner, Observer {
                 binding.selectStadium.adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, it)
                 //onItemSelectedListener
             })

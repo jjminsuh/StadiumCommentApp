@@ -10,6 +10,8 @@ data class StadiumInfoEntity(
     val stadiumId: Int,
     @ColumnInfo(name = "team_name")
     val teamName: String,
+    @ColumnInfo(name = "team_name_short")
+    val teamNAmeShort: String,
     @ColumnInfo(name = "stadium_name")
     val stadiumName: String,
     @ColumnInfo(name = "stadium_address")

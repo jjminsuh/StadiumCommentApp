@@ -10,4 +10,8 @@ class StadiumInfoRepository @Inject constructor(
     fun getAllTeam(): Single<Array<String>> {
         return stadiumInfoDao.getAllTeam()
     }
+
+    fun getHomeStadium(homeTeamShort: String): Single<String> {
+        return stadiumInfoDao.getHomeStadium(homeTeamShort)
+    }
 }

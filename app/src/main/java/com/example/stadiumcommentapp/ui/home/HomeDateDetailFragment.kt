@@ -25,8 +25,6 @@ class HomeDateDetailFragment : Fragment() {
     private lateinit var scheduleAdapter: HomeDateDetailScheduleAdapter
     private lateinit var scheduleView: RecyclerView
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

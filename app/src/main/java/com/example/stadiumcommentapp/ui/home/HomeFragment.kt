@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var viewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
+        viewModel =
             ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -46,8 +46,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadData() {
-        homeViewModel.loadInfo()
-        homeViewModel.setCalendar()
+        viewModel.loadInfo()
+        viewModel.setCalendar()
     }
 
     private fun renderUi() {
@@ -69,7 +69,7 @@ class HomeFragment : Fragment() {
         calendarView = binding.calendarRecycler
         calendarAdapter = HomeCalendarAdapter(object : DateDetailListener {
             override fun onClickDate(date: String) {
-                homeViewModel.onClickDate("${homeViewModel.thisYear.value}-${homeViewModel.thisMonth.value}-${date}")
+                viewModel.onClickDate("${viewModel.thisYear.value}-${viewModel.thisMonth.value}-${date}")
             }
         })
         calendarView.layoutManager =
@@ -79,7 +79,7 @@ class HomeFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun observe() {
-        with(homeViewModel) {
+        with(viewModel) {
             calendarList.observe(viewLifecycleOwner, Observer {
                 calendarAdapter.submitList(it)
             })
@@ -87,7 +87,6 @@ class HomeFragment : Fragment() {
             interestStadium.observe(viewLifecycleOwner, Observer {
                 binding.stadiumName.text = it.stadiumName
                 binding.stadiumAddress.text = it.stadiumAddress
-//                binding.stadiumPhoneNum.text = it.stadiumPhone
             })
 
             thisMonth.observe(viewLifecycleOwner, Observer {
