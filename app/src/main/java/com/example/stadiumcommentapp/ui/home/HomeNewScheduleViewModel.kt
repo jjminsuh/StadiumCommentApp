@@ -48,6 +48,9 @@ class HomeNewScheduleViewModel @Inject constructor(
     private val _eventSelectType = MutableLiveData<Event<WatchType>>()
     val eventSelectType: LiveData<Event<WatchType>> = _eventSelectType
 
+    private val _eventSubmit = MutableLiveData<Event<Unit>>()
+    val eventSubmit: LiveData<Event<Unit>> = _eventSubmit
+
     fun setDate(date: String) {
         val token = date.split("-")
         _date.value = DateInfo(token[0], token[1], token[2])
@@ -81,6 +84,14 @@ class HomeNewScheduleViewModel @Inject constructor(
             })
     }
 
+    fun setWatchType(type: WatchType) {
+        if(watchType.value == type) {
+            _watchType.value = WatchType.NULL
+        } else {
+            _watchType.value = type
+        }
+    }
+
     fun onClickSelectDate(dateInfo: DateInfo) {
         _eventSelectDate.value = Event(dateInfo)
     }
@@ -92,10 +103,12 @@ class HomeNewScheduleViewModel @Inject constructor(
     fun onClickType(type: WatchType) {
         if(watchType.value == type) {
             _eventSelectType.value = Event(WatchType.NULL)
-            _watchType.value = WatchType.NULL
         } else {
             _eventSelectType.value = Event(type)
-            _watchType.value = type
         }
+    }
+
+    fun onClickSubmit() {
+        _eventSubmit.value = Event(Unit)
     }
 }

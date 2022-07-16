@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.example.stadiumcommentapp.R
 import com.example.stadiumcommentapp.data.model.DateInfo
@@ -84,6 +85,10 @@ class HomeNewScheduleFragment : Fragment() {
             selectWatchStadium.setOnClickListener {
                 viewModel.onClickType(WatchType.STADIUM)
             }
+
+            buttonSubmit.setOnClickListener {
+                viewModel.onClickSubmit()
+            }
         }
     }
 
@@ -119,6 +124,10 @@ class HomeNewScheduleFragment : Fragment() {
                 dialog.show()
             })
 
+            eventSelectType.observe(viewLifecycleOwner, EventObserver{
+                setWatchType(it)
+            })
+
             watchType.observe(viewLifecycleOwner, Observer {
                 when (watchType.value) {
                     WatchType.HOME -> {
@@ -134,6 +143,11 @@ class HomeNewScheduleFragment : Fragment() {
                         binding.selectWatchStadium.setBackgroundResource(R.drawable.new_schedule_background)
                     }
                 }
+            })
+
+            eventSubmit.observe(viewLifecycleOwner, EventObserver {
+                val action = HomeNewScheduleFragmentDirections.actionNavigationHomeNewScheduleToNavigationHome()
+                Navigation.findNavController(requireView()).navigate(action)
             })
         }
     }

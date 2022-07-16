@@ -46,6 +46,9 @@
         <argument
             android:name="date"
             app:argType="string"/>
+        <action
+            android:id="@+id/action_navigation_home_new_schedule_to_navigation_home"
+            app:destination="@id/navigation_home"/>
     </fragment>
 
     <fragment
