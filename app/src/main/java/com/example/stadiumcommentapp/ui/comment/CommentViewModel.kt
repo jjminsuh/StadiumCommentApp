@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.stadiumcommentapp.data.room.StadiumInfoRepository
+import com.example.stadiumcommentapp.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -18,6 +19,9 @@ class CommentViewModel @Inject constructor(
     private val _stadiumArray = MutableLiveData<Array<String>>()
     val stadiumArray: LiveData<Array<String>> = _stadiumArray
 
+    private val _eventSubmitComment = MutableLiveData<Event<Unit>>()
+    val eventSubmitComment: LiveData<Event<Unit>> = _eventSubmitComment
+
     fun loadStadiumList() {
         stadiumInfoRepository.getAllTeam()
             .subscribeOn(Schedulers.io())
@@ -28,5 +32,9 @@ class CommentViewModel @Inject constructor(
             }, {
                 Log.d("GET_FROM_ROOM", "get all team fail : ${it.message}")
             })
+    }
+
+    fun onClickSubmitComment() {
+        _eventSubmitComment.value = Event(Unit)
     }
 }

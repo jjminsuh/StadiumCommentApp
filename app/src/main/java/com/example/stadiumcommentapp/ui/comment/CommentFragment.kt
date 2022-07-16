@@ -8,14 +8,16 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.stadiumcommentapp.R
 import com.example.stadiumcommentapp.databinding.FragmentCommentBinding
+import com.example.stadiumcommentapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class CommentFragment : Fragment() {
 
-    private lateinit var commentViewModel: CommentViewModel
+    private lateinit var viewModel: CommentViewModel
     private var _binding: FragmentCommentBinding? = null
     private val binding get() = _binding!!
 
@@ -24,8 +26,7 @@ class CommentFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        commentViewModel =
-            ViewModelProvider(this).get(CommentViewModel::class.java)
+        viewModel = ViewModelProvider(this)[CommentViewModel::class.java]
 
         _binding = FragmentCommentBinding.inflate(inflater, container, false)
         return binding.root
@@ -39,18 +40,31 @@ class CommentFragment : Fragment() {
     }
 
     private fun loadData() {
-        commentViewModel.loadStadiumList()
+        viewModel.loadStadiumList()
     }
 
     private fun renderUi() {
-
+        with(binding) {
+            buttonSubmitComment.setOnClickListener {
+                viewModel.onClickSubmitComment()
+            }
+        }
     }
 
     private fun observe() {
-        with(commentViewModel) {
+        with(viewModel) {
             stadiumArray.observe(viewLifecycleOwner, Observer {
-                binding.selectStadium.adapter = ArrayAdapter(requireContext(), R.layout.support_simple_spinner_dropdown_item, it)
+                binding.selectStadium.adapter = ArrayAdapter(
+                    requireContext(),
+                    R.layout.support_simple_spinner_dropdown_item,
+                    it
+                )
                 //onItemSelectedListener
+            })
+
+            eventSubmitComment.observe(viewLifecycleOwner, EventObserver {
+                val action = CommentFragmentDirections.actionNavigationCommentToNavigationCommentNew()
+                Navigation.findNavController(requireView()).navigate(action)
             })
         }
     }

@@ -40,4 +40,13 @@
     <string name="text_select">선택하기</string>
     <string name="text_select_home_team">홈팀을 선택해주세요.</string>
 
+    <string name="text_new_comment">새 후기 등록</string>
+    <string name="text_watch_date">관람 날짜</string>
+    <string name="text_select_stadium">경기장 선택</string>
+    <string name="text_select_seat">자리 선택</string>
+    <string name="text_area">구역</string>
+    <string name="text_seat_num">좌석 번호</string>
+    <string name="text_one_line_comment">한 줄 평</string>
+    <string name="text_please_write_comment">후기를 작성해주세요.</string>
+
 </resources>
