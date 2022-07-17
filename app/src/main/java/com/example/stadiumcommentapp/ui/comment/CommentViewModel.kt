@@ -23,14 +23,14 @@ class CommentViewModel @Inject constructor(
     val eventSubmitComment: LiveData<Event<Unit>> = _eventSubmitComment
 
     fun loadStadiumList() {
-        stadiumInfoRepository.getAllTeam()
+        stadiumInfoRepository.getAllStadium()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                Log.d("GET_FROM_ROOM", "get all team success")
+                Log.d("GET_FROM_ROOM", "get all stadium success")
                 _stadiumArray.value = it
             }, {
-                Log.d("GET_FROM_ROOM", "get all team fail : ${it.message}")
+                Log.d("GET_FROM_ROOM", "get all stadium fail : ${it.message}")
             })
     }
 

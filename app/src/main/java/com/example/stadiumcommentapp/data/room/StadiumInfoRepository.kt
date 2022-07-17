@@ -7,8 +7,8 @@ import javax.inject.Inject
 class StadiumInfoRepository @Inject constructor(
     private val stadiumInfoDao: StadiumInfoDao
 ) {
-    fun getAllTeam(): Single<Array<String>> {
-        return stadiumInfoDao.getAllTeam()
+    fun getAllStadium(): Single<Array<String>> {
+        return stadiumInfoDao.getAllStadium()
     }
 
     fun getHomeStadium(homeTeamShort: String): Single<String> {
