@@ -1,6 +1,7 @@
 package com.example.stadiumcommentapp.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.stadiumcommentapp.MainActivity
 import com.example.stadiumcommentapp.databinding.FragmentHomeDateDetailBinding
 import com.example.stadiumcommentapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,6 +32,9 @@ class HomeDateDetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val mainActivity = activity as MainActivity
+        mainActivity.hideBottomNav(true)
+
         viewModel = ViewModelProvider(this)[HomeDateDetailViewModel::class.java]
 
         _binding = FragmentHomeDateDetailBinding.inflate(inflater, container, false)
@@ -54,6 +59,7 @@ class HomeDateDetailFragment : Fragment() {
     }
 
     private fun renderUi(fullDate: String) {
+
         binding.homeDateDetailTitle.setBackArrow(true)
         binding.homeDateDetailTitle.binding.imageBack.setOnClickListener {
             //뒤로 가기 구현 필요
@@ -91,5 +97,11 @@ class HomeDateDetailFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val mainActivity = activity as MainActivity
+        mainActivity.hideBottomNav(false)
     }
 }

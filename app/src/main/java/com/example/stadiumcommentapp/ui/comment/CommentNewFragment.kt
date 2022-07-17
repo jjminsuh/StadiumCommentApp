@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.stadiumcommentapp.MainActivity
 import com.example.stadiumcommentapp.databinding.FragmentCommentNewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,6 +22,9 @@ class CommentNewFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val mainActivity = activity as MainActivity
+        mainActivity.hideBottomNav(true)
+
         viewModel = ViewModelProvider(this)[CommentNewViewModel::class.java]
 
         _binding = FragmentCommentNewBinding.inflate(inflater, container, false)
@@ -49,5 +53,11 @@ class CommentNewFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        val mainActivity = activity as MainActivity
+        mainActivity.hideBottomNav(false)
     }
 }

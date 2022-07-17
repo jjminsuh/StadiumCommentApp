@@ -2,6 +2,7 @@ package com.example.stadiumcommentapp.ui.home
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
+import com.example.stadiumcommentapp.MainActivity
 import com.example.stadiumcommentapp.R
 import com.example.stadiumcommentapp.data.model.DateInfo
 import com.example.stadiumcommentapp.data.model.WatchType
@@ -29,6 +31,9 @@ class HomeNewScheduleFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val mainActivity = activity as MainActivity
+        mainActivity.hideBottomNav(true)
+
         viewModel = ViewModelProvider(requireActivity())[HomeNewScheduleViewModel::class.java]
 
         _binding = FragmentHomeNewScheduleBinding.inflate(inflater, container, false)
