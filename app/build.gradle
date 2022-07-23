@@ -65,4 +65,6 @@ dependencies {
     def rxjava_version = "3.1.5"
     implementation "io.reactivex.rxjava3:rxjava:$rxjava_version"
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+
+    implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.6'
 }
